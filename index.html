@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韓国語ディクテーション</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+    <nav>
+        <a href="index.html" class="logo">Padasugi</a>
+        
+        <ul class="nav-links">
+            <li><a href="about.html">このサイトについて</a></li>
+            <li><a href="column.html">コラム</a></li>
+            <li><a href="privacy.html">プライバシーポリシー</a></li>
+        </ul>
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+</header>
+    <main>
+        <h1>韓国語ディクテーションサイト</h1>
+
+        <audio id="question-audio" src=""></audio>
+        <button id="play-button">音声を再生</button>
+        
+        <br>
+        
+        <textarea id="user-input" rows="5" placeholder="聞き取った韓国語を入力してください"></textarea>
+        
+        <br>
+        
+        <button id="check-button">答え合わせ</button>
+
+        <p id="result-area"></p>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

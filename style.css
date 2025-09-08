@@ -1,0 +1,246 @@
+/* --- 全体の基本設定 --- */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* Windows/Android寄りだがモダンなフォント */
+    /* iOS向けなら -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; も良い */
+    background-color: #eef2f5; /* 背景を非常に薄いグレーに */
+    color: #34495e; /* 少し落ち着いた濃いグレーの文字色 */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+/* --- アプリのコンテナ --- */
+main {
+    background-color: #ffffff;
+    padding: 30px 25px; /* 上下左右のパディングを調整 */
+    border-radius: 16px; /* 角丸をさらに強く */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* 影をよりソフトで広がる感じに */
+    width: 100%;
+    max-width: 380px; /* スマホでの見やすさを考慮し、最大幅を少し狭める */
+    text-align: center;
+    animation: fadeIn 0.8s ease-out; /* 読み込み時にふわっと表示 */
+}
+
+/* ふわっと表示するアニメーション */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 見出し --- */
+h1 {
+    font-size: 26px; /* 少し大きく */
+    color: #2c3e50; /* より濃い青みがかったグレー */
+    margin-top: 0;
+    margin-bottom: 30px; /* 下の要素との間隔を広げる */
+    font-weight: 700; /* 太めに */
+}
+
+/* --- ボタンの共通スタイル --- */
+button {
+    width: 100%;
+    padding: 14px; /* パディングを少し大きく */
+    font-size: 17px; /* フォントサイズも少し大きく */
+    font-weight: 600; /* 中くらいの太さ */
+    border: none;
+    border-radius: 10px; /* 角丸をさらに強く */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out; /* ホバー時のアニメーションを滑らかに */
+    margin-bottom: 18px; /* 下の要素との間隔を調整 */
+    letter-spacing: 0.5px; /* 文字間隔を少し開ける */
+}
+
+/* 再生ボタンのスタイル */
+#play-button {
+    background-color: #4CAF50; /* 落ち着いたグリーン */
+    color: white;
+}
+
+#play-button:hover {
+    background-color: #45a049; /* ホバーで少し濃いグリーン */
+    transform: translateY(-2px); /* わずかに上に浮き上がる */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* ソフトな影 */
+}
+
+/* 答え合わせボタンのスタイル */
+#check-button {
+    background-color: #007bff; /* 明るいブルー */
+    color: white;
+}
+
+#check-button:hover {
+    background-color: #0056b3; /* ホバーで少し濃いブルー */
+    transform: translateY(-2px); /* わずかに上に浮き上がる */
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* ソフトな影 */
+}
+
+/* --- テキスト入力欄 --- */
+textarea {
+    width: calc(100% - 20px); /* padding分を引く */
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #cdd4da; /* 線の色を控えめに */
+    border-radius: 10px; /* 角丸 */
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    resize: vertical;
+    min-height: 120px; /* 最初から少し高さを出す */
+    color: #34495e;
+    transition: border-color 0.2s ease;
+}
+
+textarea:focus {
+    border-color: #007bff; /* フォーカス時に青い枠線 */
+    outline: none; /* デフォルトのアウトラインを消す */
+}
+
+/* --- 結果表示エリア --- */
+#result-area {
+    font-size: 19px; /* 少し大きく */
+    font-weight: 700; /* 太めに */
+    margin-top: 25px;
+    min-height: 30px; /* 結果が表示されてなくても高さを確保 */
+    padding: 5px 0;
+}
+
+/* --- 音声プレーヤー本体は隠す --- */
+#question-audio {
+    display: none;
+}
+/* --- ヘッダーとナビゲーションのスタイル --- */
+header {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed; /* 画面上部に固定 */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* 他の要素より手前に表示 */
+}
+
+nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+/* --- コンテンツページのスタイル --- */
+.content-page {
+    padding-top: 80px; /* 固定ヘッダー分のスペースを確保 */
+    text-align: left;
+    max-width: 800px;
+}
+
+.content-page h1 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- ハンバーガーメニューのスタイル --- */
+.burger {
+    display: none; /* 最初は非表示 */
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* --- レスポンシブ対応 (スマホ表示用) --- */
+/* 画面幅が768px以下になった場合に適用 */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        top: 60px; /* ヘッダーの高さ分、下から開始 */
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column; /* 縦並びに変更 */
+        align-items: center;
+        width: 60%;
+        height: calc(100vh - 60px);
+        transform: translateX(100%); /* 画面の外に隠す */
+        transition: transform 0.5s ease-in;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-links li {
+        opacity: 0; /* 最初は透明 */
+        margin: 20px 0;
+    }
+
+    .burger {
+        display: block; /* ハンバーガーボタンを表示 */
+    }
+}
+
+/* JavaScriptで nav-activeクラスが付いた時のスタイル */
+.nav-active {
+    transform: translateX(0%); /* メニューを画面内に表示 */
+}
+
+/* メニューが開いた時のリンクのアニメーション */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+/* ハンバーガーボタンがX印になるアニメーション */
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
